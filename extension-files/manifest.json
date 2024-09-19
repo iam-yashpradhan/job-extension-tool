@@ -1,0 +1,25 @@
+{
+    "name": "Job Automation Tool",
+    "version": "1.0.0",
+    "description": "Saving my Time",
+    "manifest_version": 3,
+    "author": "Yash Pradhan",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Add"
+    },
+    "web_accessible_resources": [
+        {
+          "resources": ["form.js"],
+          "matches": ["<all_urls>"]
+        }
+      ],
+    "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net; object-src 'self'",
+    "permissions": [
+        "activeTab",
+        "storage"
+      ],
+      "host_permissions": [
+        "http://127.0.0.1:8000*"
+      ]
+}
