@@ -3,6 +3,10 @@ from pydantic import BaseModel
 import requests
 from datetime import datetime, timezone
 from fastapi.middleware.cors import CORSMiddleware
+import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 app = FastAPI()
 app.add_middleware(
@@ -13,8 +17,8 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-NOTION_TOKEN = 'secret_jcqZB0czog8qCtZHChfQBKKIjlXndPuLWZ1bKnzOw4l'
-DB_ID = '991cac47dd964cf2a108d3a002c2d084'
+NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
+DB_ID = os.environ.get("DB_ID")
 
 headers = {
     "Authorization": "Bearer " + NOTION_TOKEN,
