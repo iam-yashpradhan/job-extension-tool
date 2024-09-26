@@ -4,7 +4,7 @@ document.getElementById('extensionForm').addEventListener('submit', function(e) 
     const company = document.getElementById('textInput').value;
     const position = document.getElementById('dropdownSelect').value;
     
-    fetch('http://127.0.0.1:8000/add_job_application', {
+    fetch('https://job-extension-tool.onrender.com/add_job_application', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
