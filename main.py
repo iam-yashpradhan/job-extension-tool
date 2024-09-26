@@ -60,5 +60,5 @@ async def add_job_application(job: JobApplication):
         raise HTTPException(status_code=500, detail="Failed to add job application to Notion")
     
 if __name__ == "__main__":
-    # Run the app with Uvicorn on the specified port
+    port = int(os.environ.get('PORT', 4000))
     uvicorn.run(app, host="0.0.0.0", port=port)
