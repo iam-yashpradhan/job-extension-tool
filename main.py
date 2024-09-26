@@ -8,7 +8,7 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
-port = os.environ.get('PORT', 4000)
+port = int(os.environ.get("PORT", 10000))
 
 app = FastAPI()
 app.add_middleware(
@@ -60,5 +60,4 @@ async def add_job_application(job: JobApplication):
         raise HTTPException(status_code=500, detail="Failed to add job application to Notion")
     
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 4000))
     uvicorn.run(app, host="0.0.0.0", port=port)
