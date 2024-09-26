@@ -38,6 +38,11 @@ def create_page(data: dict):
     res = requests.post(create_url, headers=headers, json=payload)
     return res.json()
 
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
+
 @app.post("/add_job_application")
 async def add_job_application(job: JobApplication):
     current_date = datetime.now(timezone.utc).isoformat()
